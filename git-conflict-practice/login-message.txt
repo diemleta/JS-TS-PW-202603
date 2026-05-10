@@ -1,3 +1,3 @@
 
 messsage = login thanh cong tu nhanh main
-message = login thanh cong tu nhanh main (sua tren main)
+message = login thanh cong tu nhanh main (sua tren main 1)
