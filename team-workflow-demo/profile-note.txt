@@ -1,2 +1,2 @@
-profile = HoTen;
+profile = Ho ten va hien thi avatar moi;
 
