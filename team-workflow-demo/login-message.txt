@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 message = login thanh cong tu nhanh branch-demo-c;
+=======
+message = login thanh cong tu code moi tren main;
+>>>>>>> demo/team-main
