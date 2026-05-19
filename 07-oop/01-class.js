@@ -160,50 +160,30 @@ truyenVaoCallBack(hamArrowBiTach);
 // Method kiemTraThongBao(): in ra modal thông báo
 
 // flowMethod thucHienThemVaKiemTra(ten, Gia): goi 2 hàm bên trên
-// class ProductPage extends BasePage {
+class ProductPage {
+    txtTenSP = '#productName'
+    txtGia = '#price'
+    btnGioHang = '#btnCart'
+    modalThongBao = '.notification'
 
-//   constructor() {
-// super()
-//     this.txtTenSP = "#productName";
-//     this.txtGia = "#price";
-//     this.btnGioHang = "#btnCart";
-//     this.modalThongBao = ".notification";
-//   }
-//   themSanPham(ten, gia) {
-//     console.log(`Gõ tên sản phẩm vào ${this.txtTenSP}: ${ten}`);
-//     console.log(`Gõ giá vào ${this.txtGia}: ${gia}`);
-//     console.log(`Click nút thêm giỏ hàng: ${this.btnGioHang}`);
-//   }
-//   kiemTraThongBao() {
-//     console.log(`Hiển thị modal thông báo: ${this.modalThongBao}`);
-//   }
-//   thucHienThemVaKiemTra(ten, gia) {
-//     this.themSanPham(ten, gia);
-//     this.kiemTraThongBao();
-//   }
-// }
-// class ProductPage {
-//   txtTenSP = "#productName";
-//   txtGia = "#price";
-//   btnGioHang = "#btnCart";
-//   modalThongBao = ".notification";
-//   // method thêm sản phẩm
-//   themSanPham(ten, gia) {
-//     console.log(`Gõ tên sản phẩm ${this.txtTenSP} : ${ten}`);
-//     console.log(`Gõ giá sản phẩm ${this.txtGia} : ${gia}`);
-//     console.log(`Click button thêm giỏ hàng : ${this.btnGioHang}`);
-//   }
-//   // method kiểm tra thông báo
-//   kiemTraThongBao() {
-//     console.log(`Kiểm tra hiển thị thông báo tại : ${this.modalThongBao}`);
-//   }
-//   thucHienThemVaKiemTra(ten, gia) {
-//     this.themSanPham(ten, gia);
-//     this.kiemTraThongBao();
-//   }
-// }
-// let product1 = new ProductPage();
-// product1.themSanPham("Tra sua", 50000);
-// product1.kiemTraThongBao();
-// console.log("=================");
-// product1.thucHienThemVaKiemTra("Cà phê", 45000);
+    themSanPham(ten,gia){
+        console.log(`Gõ tên SP vào ${this.txtTenSP}:  ${ten}`);
+        console.log(`Gõ giá SP vào ${this.txtGia}: ${gia}`);
+        console.log(`Click button ${this.btnGioHang}`);
+        
+    }
+
+    kiemTraThongBao(){
+        console.log(`In ra thông báo: ${this.modalThongBao}`);
+        
+    }
+
+    thucHienVaKiemTra(ten,gia){
+        this.themSanPham(ten,gia);
+        this.kiemTraThongBao();
+
+    }   
+
+}
+let product = new ProductPage();
+product.thucHienVaKiemTra("Iphone", 50000);

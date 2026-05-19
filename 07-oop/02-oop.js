@@ -76,32 +76,32 @@
 // //khi mà khởi tạo thằng con kế thừa cha
 // // -> vào construct
 
-// class BasePage4 {
-//   chupManHinh(url) {
-//     console.log(`Chụp mành hình ${url}`);
-//   }
-// }
-// //class con
-// class MobilePage extends BasePage4 {
-//   //ghi đè hoàn toàn hàm cha (Override)
+class BasePage4 {
+  chupManHinh(url) {
+    console.log(`Chụp mành hình ${url}`);
+  }
+}
+//class con
+class MobilePage extends BasePage4 {
+  //ghi đè hoàn toàn hàm cha (Override)
 
-//   chupManHinh(tenFile) {
-//     console.log(`Chụp nguyên trang mobile ${tenFile}`);
-//   }
-// }
-// let mobile = new MobilePage();
-// mobile.chupManHinh("123");
+  chupManHinh(tenFile) {
+    console.log(`Chụp nguyên trang mobile ${tenFile}`);
+  }
+}
+let mobile = new MobilePage();
+mobile.chupManHinh("123");
 
 // //extend  - Giữ nguyên hàm cha _ thêm logic, -> gọi super.tenHam()
 
-// class SreenPage extends BasePage4 {
-//   chupManHinh(tenFile) {
-//     //Gọi hàm gốc của cha trước
-//     //Thêm logic riêng của con
-//     console.log(`Chụp nguyên trang Screen ${tenFile}`);
-//     super.chupManHinh(tenFile);
-//   }
-// }
+class SreenPage extends BasePage4 {
+  chupManHinh(tenFile) {
+    //Gọi hàm gốc của cha trước
+    //Thêm logic riêng của con
+    console.log(`Chụp nguyên trang Screen ${tenFile}`);
+    super.chupManHinh(tenFile);
+  }
+}
 
 // let screenTest = new SreenPage();
 // screenTest.chupManHinh("lỗi đăng nhập");
@@ -119,61 +119,46 @@
 //   { ten: "Email rỗng", trangThai: "passed", thoiGian: 8000 },
 // ];
 
-// class BaseSuite {
-//   tenSuite = "";
-//   constructor(tenSuite) {
-//     this.tenSuite = tenSuite;
-//   }
-//   inTieuDe() {
-//     console.log(`=== Suite: ${this.tenSuite} ===`);
-//   }
-//   inKetQua(danhSachCase) {
-//     for (const testcase of danhSachCase) {
-//       const { ten, trangThai, thoiGian } = testcase;
-//       console.log(`Test: ${ten} | Status: ${trangThai} | Time: ${thoiGian}ms`);
-//     }
-//   }
-// }
-// class LoginSuite extends BaseSuite {
-//   constructor(tenSuite) {
-//     super(tenSuite);
-//   }
-//   inTieuDe() {
-//     super.inTieuDe();
-//     console.log("Trang kiểm thử: /login");
-//   }
-// }
-// let loginSuite = new LoginSuite("Login Test Suite");
-// loginSuite.inTieuDe();
-// loginSuite.inKetQua(loginCases);
-//Noted xem lại extends ko khai báo constructor
-// class BaseSuite {
-//   tenSuite;
-//   constructor(tenSuite) {
-//     this.tenSuite = tenSuite;
-//   }
-//   inTieuDe() {
-//     console.log(`=== ${this.tenSuite} ===`);
-//   }
-//   inKetQua(danhSachCase) {
-//     for (const { ten, trangThai, thoiGian } of danhSachCase) {
-//       console.log(`TC: ${ten} | Status: ${trangThai} | Time: ${thoiGian}ms`);
-//     }
-//   }
-// }
-// class LoginSuite extends BaseSuite {
-//   trangKiemThu = "/login";
-//   inTieuDe() {
-//     console.log(`Trang kiểm thử ${this.trangKiemThu}`);
-//   }
-// }
-// let loginCases = [
-//   { ten: "Đăng nhập đúng tài khoản", trangThai: "passed", thoiGian: 12000 },
-//   { ten: "Sai mật khẩu", trangThai: "failed", thoiGian: 5000 },
-//   { ten: "Email rỗng", trangThai: "passed", thoiGian: 8000 },
-// ];
-// const loginSuite = new LoginSuite("Login Test Suite");
-// loginSuite.inTieuDe();
+let loginCases = [
+    { ten: "Đăng nhập đúng tài khoản", trangThai: "passed", thoiGian: 12000 },
+    { ten: "Sai mật khẩu", trangThai: "failed", thoiGian: 5000 },
+    { ten: "Email rỗng", trangThai: "passed", thoiGian: 8000 },
+];
+
+class BaseSuite {
+    tenSuite = "";
+    
+    constructor(ten) {
+        this.tenSuite = ten;
+    }
+
+    inTieuDe() {
+        console.log(`Tên Suite là: ${this.tenSuite}`);
+    }
+
+    inKetQua(danhSachCase) {
+        for (const item of danhSachCase) {
+            const { ten, trangThai, thoiGian } = item;
+            console.log(`${ten} | ${trangThai} | ${thoiGian}`);
+        }
+
+    }
+}
+
+class LoginSuite extends BaseSuite {
+
+    inTieuDe() {
+    super.inTieuDe();
+    console.log(`Trang kiểm thử /login`);
+
+}
+
+}
+
+let loginSuite = new LoginSuite("Login Suite");
+loginSuite.inTieuDe();
+loginSuite.inKetQua(loginCases);
+
 
 class ApiClient {
   //private field
